@@ -16,7 +16,7 @@
 @import "~@ionic/angular/css/normalize.css";
 @import "~@ionic/angular/css/structure.css";
 @import "~@ionic/angular/css/typography.css";
-@import '~@ionic/angular/css/display.css';
+@import "~@ionic/angular/css/display.css";
 
 /* Optional CSS utils that can be commented out */
 @import "~@ionic/angular/css/padding.css";
@@ -24,3 +24,40 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+/* Fuente nunito */
+@import url("https://fonts.googleapis.com/css?family=Nunito:400,700&display=swap");
+
+#js--sc--container {
+  width: 100vw;
+  height: 100vh;
+  margin: auto;
+  position: relative;
+  canvas {
+    position: fixed;
+    top: 20vh;
+    left: 80vw;
+    z-index: 99;
+    border-radius: 5px;
+    width: 100vw;
+    height: 100vh;
+  }
+  .cardamountcss {
+    z-index: 9;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    text-align: center;
+
+    .won-text {
+      font-size: 3em;
+      color: #ff3b68;
+    }
+  }
+  .sc__inner {
+    background: white;
+    height: 100%;
+    width: 100%;
+  }
+}

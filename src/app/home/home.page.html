@@ -1,14 +1,67 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+<div class="no-scroll">
+  <div class="precarga-img">
+    <img
+      src="/assets/rocio.jpg"
+    />
+    <img
+      src="/assets/mire.jpg"
+    />
   </div>
-</ion-content>
+  <div class="gift">
+    <div *ngIf="entrada" class="text bounce-in-top">Hola Rocio</div>
+    <img
+      class="slide-in-elliptic-left-bck"
+      (click)="abrirRasca()"
+      src="/assets/gift.gif"
+    />
+    <div *ngIf="entrada" class="text bounce-in-bottom">
+      pulsa sobre el regalo para ver la sorpresa
+    </div>
+  </div>
+  <div *ngIf="rasca" class="rasca scale-in-center">
+    <div class="rasca-background">
+      <div class="sc__wrapper">
+        <div id="js--sc--container"></div>
+      </div>
+    </div>
+  </div>
+  <div
+    *ngIf="rasca"
+    [class]="instrucciones? 'top bounce-in-top' : 'top bounce-in-top slide-out-top'"
+  >
+    <div class="heartbeat">
+      Rasca la pantalla para saber si has ganado
+    </div>
+  </div>
+  <div *ngIf="notas" class="rasca blanco scale-in-center">
+    <div class="messenger-background">
+      <div *ngFor="let mensaje of mensajes">
+        <p class="time fade-in">{{mensaje.time}}</p>
+        <img
+          *ngIf="mensaje.user === 'rocio'"
+          [src]="mensaje.img"
+          class="avatar fade-in"
+        />
+        <p [class]="mensaje.user === 'mire'? 'msg mire fade-in' :'msg rocio fade-in'">
+          {{mensaje.msg}}
+        </p>
+        <img
+          *ngIf="mensaje.user === 'mire'"
+          [src]="mensaje.img"
+          class="avatar fade-in"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="input fade-in" *ngIf="notas">
+    <input
+      type="text"
+      [(ngModel)]="mensajeAEnviar"
+      placeholder="Responde a Mireia para continuar"
+      class="text-send"
+    />
+    <ion-fab-button (click)="enviarMensaje()">
+      <ion-icon name="send"></ion-icon>
+    </ion-fab-button>
+  </div>
+</div>
